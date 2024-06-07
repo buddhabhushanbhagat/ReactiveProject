@@ -31,16 +31,9 @@ public class SendMailController {
 	}
 
 	@PostMapping("/send")
-	public EmailDetails sendMailWithAttachment() {
-		EmailDetails details = new EmailDetails();
-		String[] attachments = { "C:/Users/Bbhushan/Pictures/my passport_size_photo.jpg",
-				"C:/Users/Bbhushan/Downloads/BuddhabhushanB_Resume.pdf",
-				"C:/Users/Bbhushan/Downloads/Shubham-Ayachit-Resume.pdf" };
-		details.setAttachments(attachments);
-		details.setMsgBody("Please find attached resume below!!!");
-		details.setRecipient("buddhabhushan0414@gmail.com");
-		details.setSubject("Sharing Resume from SpringBoot app");
-		Mono<String> status = emailService.sendMailWithAttachment(details);
-		return details;
+	public Mono<String> sendMailWithAttachment(@RequestBody EmailDetails emailDetails) {
+		
+		Mono<String> status = emailService.sendMailWithAttachment(emailDetails);
+		return status;
 	}
 }
