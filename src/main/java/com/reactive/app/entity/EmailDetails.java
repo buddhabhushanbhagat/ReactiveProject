@@ -1,16 +1,16 @@
 package com.reactive.app.entity;
 
 public class EmailDetails {
-	private String recipient;
+	private String[] recipient;
 	private String msgBody;
 	private String subject;
 	private String[] attachments;
 
-	public String getRecipient() {
+	public String[] getRecipient() {
 		return recipient;
 	}
 
-	public void setRecipient(String recipient) {
+	public void setRecipient(String[] recipient) {
 		this.recipient = recipient;
 	}
 

@@ -21,10 +21,12 @@ public class SendMailController {
 	@GetMapping("/send")
 	public EmailDetails sendMail() {
 		EmailDetails details = new EmailDetails();
+		String[] recipientArray = {"bhagatbuddhabhushan@gmail.com","buddhabhushan0414@gmail.com"};
 		details.setAttachments(null);
 		details.setMsgBody("Hi2!!!");
-		details.setRecipient("buddhabhushan0414@gmail.com");
 		details.setSubject("testing");
+		details.setRecipient(recipientArray);
+
 		Mono<String> status = emailService.sendSimpleMail(details);
 		System.out.println("hehe:" + status);
 		return details;
